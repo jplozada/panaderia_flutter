@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import './ui/router.dart';
 import './locator.dart';
 import './core/viewmodels/CRUDModelInventory.dart';
+import './core/viewmodels/CRUDModelLitografia.dart';
 
 void main() {
   setupLocator();
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(builder: (_) => locator<CRUDModelInventory>()),
+        ChangeNotifierProvider(builder: (_) => locator<CRUDModelLitografia>()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

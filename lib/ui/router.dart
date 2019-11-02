@@ -3,6 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:panaderia_flutter/ui/views/inventory/readInventory.dart';
 import './views/inventory/addInventory.dart';
 import './views/inventory/inventoryDetails.dart';
+import 'package:panaderia_flutter/ui/views/litografia/readLitografia.dart';
+import './views/litografia/addLitografia.dart';
+import './views/litografia/litografiaDetails.dart';
 import './views/homeView.dart';
 //import './views/homeProduction.dart';
 
@@ -17,14 +20,23 @@ class Router {
         return MaterialPageRoute(
           builder: (_)=> AddInventory()
         ) ;
-      // case '/inventoryDetails' :
-      //   return MaterialPageRoute(
-      //       builder: (_)=> InventoryDetails()
-      //   ) ;
+  // case '/inventoryDetails' :
+  //   return MaterialPageRoute(
+  //       builder: (_)=> InventoryDetails()
+  //   ) ;
       case '/readInventory' :
         return MaterialPageRoute(
             builder: (_)=> ReadInventory()
         ) ;
+      case '/addLitografia' :
+        return MaterialPageRoute(
+          builder: (_)=> AddLitografia()
+        ) ;
+      case '/readLitografia' :
+        return MaterialPageRoute(
+            builder: (_)=> ReadLitografia()
+        ) ;
+
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(
