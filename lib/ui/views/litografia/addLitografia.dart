@@ -41,7 +41,9 @@ class _AddLitografiaState extends State<AddLitografia> {
       appBar: AppBar(
         title: Text('Añadir registro'),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Padding(
         padding: EdgeInsets.all(8),
         child: Form(
           key: _formKey,
@@ -164,7 +166,7 @@ class _AddLitografiaState extends State<AddLitografia> {
                     Expanded(
                       flex: 1,
                       child: Padding(
-                        padding: EdgeInsets.all(5),
+                        padding: EdgeInsets.all(10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -193,7 +195,7 @@ class _AddLitografiaState extends State<AddLitografia> {
                     Expanded(
                       flex: 1,
                       child: Padding(
-                        padding: EdgeInsets.all(5),
+                        padding: EdgeInsets.all(10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -219,7 +221,7 @@ class _AddLitografiaState extends State<AddLitografia> {
                     Expanded(
                       flex: 1,
                       child: Padding(
-                        padding: EdgeInsets.all(5),
+                        padding: EdgeInsets.all(10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -249,7 +251,7 @@ class _AddLitografiaState extends State<AddLitografia> {
                     Expanded(
                       flex: 1,
                       child: Padding(
-                        padding: EdgeInsets.all(5),
+                        padding: EdgeInsets.all(10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -278,7 +280,7 @@ class _AddLitografiaState extends State<AddLitografia> {
                     Expanded(
                       flex: 1,
                       child: Padding(
-                        padding: EdgeInsets.all(5),
+                        padding: EdgeInsets.all(10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -318,6 +320,7 @@ class _AddLitografiaState extends State<AddLitografia> {
           ),
         ),
       ),
+      )
     );
   }
   void _onChangedValue1(String newValue1) {

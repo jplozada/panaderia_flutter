@@ -1,74 +1,198 @@
-// import 'package:flutter/material.dart';
-// import 'package:prueba1/core/models/inventoryModel.dart';
-// import 'package:prueba1/core/viewmodels/CRUDModelInventory.dart';
-// import 'package:prueba1/ui/views/inventory/ModifyInventory.dart';
-// import 'package:provider/provider.dart';
+import 'package:flutter/material.dart';
+import 'package:panaderia_flutter/core/models/litografiaModel.dart';
+import 'package:panaderia_flutter/core/viewmodels/CRUDModelLitografia.dart';
+import 'package:panaderia_flutter/ui/views/litografia/ModifyLitografia.dart';
+import 'package:provider/provider.dart';
 
-// class InventoryDetails extends StatelessWidget {
-//   final Inventory product;
+class LitografiaDetails extends StatelessWidget {
+  final Litografia product;
 
-//   InventoryDetails({@required this.product});
+  LitografiaDetails({@required this.product});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     final productProvider = Provider.of<CRUDModelInventory>(context);
+  @override
+  Widget build(BuildContext context) {
+    final productProvider = Provider.of<CRUDModelLitografia>(context);
 
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Detalle del registro'),
-//         actions: <Widget>[
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Detalle del registro'),
+        actions: <Widget>[
           
-//           IconButton(
-//             iconSize: 35,
-//             icon: Icon(Icons.delete_forever),
-//             onPressed: ()async {
-//               await productProvider.removeProduct(product.id);
-//               Navigator.pushNamed(context, '/readInventory');
-//             },
-//           ),
-//           IconButton(
-//             iconSize: 35,
-//             icon: Icon(Icons.edit),
-//             onPressed: (){
-//               Navigator.push(context, MaterialPageRoute(builder: (_)=> ModifyInventory(product: product,)));
-//             },
-//           )
-//         ],
-//       ),
-//       body: Column(
-//         mainAxisSize: MainAxisSize.max,
-//         crossAxisAlignment: CrossAxisAlignment.center,
-//         children: <Widget>[
-//           Text(
-//             product.nombre,
-//             style: TextStyle(
-//                 fontWeight: FontWeight.w900,
-//                 fontSize: 22,
-//                 fontStyle: FontStyle.italic),
-//           ),
-//           Text(
-//             product.cantTotal,
-//             style: TextStyle(
-//                 fontWeight: FontWeight.w900,
-//                 fontSize: 22,
-//                 fontStyle: FontStyle.italic),
-//           ),
-//           Text(
-//             product.cantSalida,
-//             style: TextStyle(
-//                 fontWeight: FontWeight.w900,
-//                 fontSize: 22,
-//                 fontStyle: FontStyle.italic),
-//           ),
-//           Text(
-//             product.cantEntrada,
-//             style: TextStyle(
-//                 fontWeight: FontWeight.w900,
-//                 fontSize: 22,
-//                 fontStyle: FontStyle.italic),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
+          IconButton(
+            iconSize: 35,
+            icon: Icon(Icons.delete_forever),
+            onPressed: ()async {
+              await productProvider.removeProduct(product.id);
+              Navigator.pushNamed(context, '/readLitografia');
+            },
+          ),
+          IconButton(
+            iconSize: 35,
+            icon: Icon(Icons.edit),
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_)=> ModifyLitografia(product: product,)));
+            },
+          )
+        ],
+      ),
+      body: Column(
+            children: <Widget>[
+              Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                          Text("Fecha trabajo"),
+                          Text(product.fechaTrabajo)
+                          ],
+                        ),
+                      )
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                          Text("Hora trabajo"),
+                          Text(product.horaTrabajo)
+                          ],
+                        ),
+                      )
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                          Text("Turno"),
+                          Text(product.turno)
+                          ],
+                        ),
+                      )
+                    ),
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                          Text("Producto"),
+                          Text(product.producto)
+                          ],
+                        ),
+                      )
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                          Text("Cliente"),
+                          Text(product.cliente)
+                          ],
+                        ),
+                      )
+                    ),
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text("Trabajo"),
+                            Text(product.trabajo)
+                          ],
+                        ),
+                      )
+                    ),
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text("Hojas producidas"),
+                            Text(product.hojasProducidas.toString())
+                          ],
+                        ),
+                      )
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text("Hojas a producir"),
+                            Text(product.hojasAProducir.toString())
+                          ],
+                        ),
+                      )
+                    ),
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text("Materia prima"),
+                            Text(product.materiaPrima)
+                          ],
+                        ),
+                      )
+                    ),
+                  ],
+                ),
+              Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text("Observacion"),
+                            Text(product.observacion)
+                          ],
+                        ),
+                      )
+                    ),
+                  ],
+                ),
+            ],
+          ),
+    );
+  }
+}
