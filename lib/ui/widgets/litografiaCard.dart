@@ -12,6 +12,7 @@ class LitografiaCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final productProvider = Provider.of<CRUDModelLitografia>(context);
 
     return GestureDetector(
@@ -54,7 +55,7 @@ class LitografiaCard extends StatelessWidget {
                               ),
                               Container(
                                 child: Text(
-                                  product.fechaTrabajo,
+                                  "${product.fechaTrabajo.toDate().day}-${product.fechaTrabajo.toDate().month}-${product.fechaTrabajo.toDate().year}",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontSize: 16,

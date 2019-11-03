@@ -47,7 +47,7 @@ class LitografiaDetails extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                           Text("Fecha trabajo"),
-                          Text(product.fechaTrabajo)
+                          Text("${product.fechaTrabajo.toDate().day}-${product.fechaTrabajo.toDate().month}-${product.fechaTrabajo.toDate().year}",)
                           ],
                         ),
                       )
@@ -60,7 +60,7 @@ class LitografiaDetails extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                           Text("Hora trabajo"),
-                          Text(product.horaTrabajo)
+                          Text("${product.fechaTrabajo.toDate().hour}:${product.fechaTrabajo.toDate().minute}:${product.fechaTrabajo.toDate().second}",)
                           ],
                         ),
                       )

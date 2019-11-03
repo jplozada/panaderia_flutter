@@ -1,7 +1,9 @@
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Litografia {
   String id;
-  String fechaTrabajo;
+  Timestamp fechaTrabajo;
   String horaTrabajo;
   String turno;
   String producto;

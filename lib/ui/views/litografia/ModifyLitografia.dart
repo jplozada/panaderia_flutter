@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:panaderia_flutter/core/models/litografiaModel.dart';
 import 'package:panaderia_flutter/core/viewmodels/CRUDModelLitografia.dart';
@@ -25,7 +26,7 @@ class _ModifyLitografiaState extends State<ModifyLitografia> {
   var _value3 = ['LITOGRAFIA FONDO BLANCO', 'LITOGRAFIA 1ER COLOR'];
 	var _value3Selected = 'Adolfo';
 
-  String fechaTrabajo;
+  Timestamp fechaTrabajo;
   String horaTrabajo;
   String turno;
   String producto;
@@ -38,9 +39,9 @@ class _ModifyLitografiaState extends State<ModifyLitografia> {
 
   @override
   Widget build(BuildContext context) {
-    DateTime selectedDate = DateTime.now();
-    fechaTrabajo = "${selectedDate.year}-${selectedDate.month}-${selectedDate.day}";
-    horaTrabajo = "${selectedDate.hour}:${selectedDate.minute}";
+    DateTime fechaActual = DateTime.now();
+    Timestamp fechaActualFirebase = Timestamp.now();
+    fechaTrabajo = fechaActualFirebase;
     final productProvider = Provider.of<CRUDModelLitografia>(context);
     return Scaffold(
       appBar: AppBar(
@@ -64,7 +65,7 @@ class _ModifyLitografiaState extends State<ModifyLitografia> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                           Text("Fecha trabajo"),
-                          Text("${selectedDate.year}-${selectedDate.month}-${selectedDate.day}",),  
+                          Text("${widget.product.fechaTrabajo.toDate().day}-${widget.product.fechaTrabajo.toDate().month}-${widget.product.fechaTrabajo.toDate().year}",),
                           ],
                         ),
                       )
@@ -77,7 +78,7 @@ class _ModifyLitografiaState extends State<ModifyLitografia> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                           Text("Hora trabajo"),
-                          Text("${selectedDate.hour}:${selectedDate.minute}",),
+                          Text("${widget.product.fechaTrabajo.toDate().hour}:${widget.product.fechaTrabajo.toDate().minute}:${widget.product.fechaTrabajo.toDate().second}",),
                           ],
                         ),
                       )

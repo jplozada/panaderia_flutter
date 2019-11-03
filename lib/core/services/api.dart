@@ -42,7 +42,7 @@ class ApiLitografia{
     return ref.getDocuments() ;
   }
   Stream<QuerySnapshot> streamDataCollection() {
-    return ref.snapshots() ;
+    return ref.orderBy('fechaTrabajo', descending:true).snapshots() ;
   }
   Future<DocumentSnapshot> getDocumentById(String id) {
     return ref.document(id).get();

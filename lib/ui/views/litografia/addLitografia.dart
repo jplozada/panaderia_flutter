@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:panaderia_flutter/core/models/litografiaModel.dart';
 import 'package:provider/provider.dart';
@@ -20,7 +21,7 @@ class _AddLitografiaState extends State<AddLitografia> {
   var _value3 = ['LITOGRAFIA FONDO BLANCO', 'LITOGRAFIA 1ER COLOR'];
 	var _value3Selected = 'Adolfo';
 
-  String fechaTrabajo;
+  Timestamp fechaTrabajo;
   String horaTrabajo;
   String turno;
   String producto;
@@ -33,9 +34,9 @@ class _AddLitografiaState extends State<AddLitografia> {
 
   @override
   Widget build(BuildContext context) {
-    DateTime selectedDate = DateTime.now();
-    fechaTrabajo = "${selectedDate.year}-${selectedDate.month}-${selectedDate.day}";
-    horaTrabajo = "${selectedDate.hour}:${selectedDate.minute}";
+    DateTime fechaActual = DateTime.now();
+    Timestamp fechaActualFirebase = Timestamp.now();
+    fechaTrabajo = fechaActualFirebase;
     var productProvider = Provider.of<CRUDModelLitografia>(context) ;
     return Scaffold(
       appBar: AppBar(
@@ -59,7 +60,7 @@ class _AddLitografiaState extends State<AddLitografia> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                           Text("Fecha trabajo"),
-                          Text("${selectedDate.year}-${selectedDate.month}-${selectedDate.day}",),  
+                          Text("${fechaActual.year}-${fechaActual.month}-${fechaActual.day}",),  
                           ],
                         ),
                       )
@@ -72,7 +73,7 @@ class _AddLitografiaState extends State<AddLitografia> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                           Text("Hora trabajo"),
-                          Text("${selectedDate.hour}:${selectedDate.minute}",),
+                          Text("${fechaActual.hour}:${fechaActual.minute}:${fechaActual.second}",),
                           ],
                         ),
                       )
