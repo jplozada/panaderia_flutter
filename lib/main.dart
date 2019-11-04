@@ -4,6 +4,7 @@ import './ui/router.dart';
 import './locator.dart';
 import './core/viewmodels/CRUDModelLitografia.dart';
 import './core/viewmodels/CRUDModelTijeras.dart';
+import 'package:panaderia_flutter/core/viewmodels/CRUDModelFinalProduct.dart';
 
 void main() {
   setupLocator();
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(builder: (_) => locator<CRUDModelLitografia>()),
         ChangeNotifierProvider(builder: (_) => locator<CRUDModelTijeras>()),
+        ChangeNotifierProvider(builder: (_) => locator<CRUDModelFinalProduct>()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
