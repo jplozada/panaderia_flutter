@@ -1,20 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:panaderia_flutter/core/models/litografiaModel.dart';
-import 'package:panaderia_flutter/core/viewmodels/CRUDModelLitografia.dart';
+import 'package:panaderia_flutter/core/models/tijerasModel.dart';
+import 'package:panaderia_flutter/core/viewmodels/CRUDModelTijeras.dart';
 import 'package:provider/provider.dart';
 
-
-class ModifyLitografia extends StatefulWidget {
-  final Litografia product;
-
-  ModifyLitografia({@required this.product});
-
-  @override
-  _ModifyLitografiaState createState() => _ModifyLitografiaState();
+class TimeValue {
+    final int _key;
+    final String _value;
+    TimeValue(this._key, this._value);
 }
 
-class _ModifyLitografiaState extends State<ModifyLitografia> {
+class ModifyTijeras extends StatefulWidget {
+  final Tijeras product;
+
+  ModifyTijeras({@required this.product});
+
+  @override
+  _ModifyTijerasState createState() => _ModifyTijerasState();
+}
+
+class _ModifyTijerasState extends State<ModifyTijeras> {
   final _formKey = GlobalKey<FormState>();
   //Dropdownbutton value1
   var _value1 = ['1er turno', '2do turno'];
@@ -23,26 +28,32 @@ class _ModifyLitografiaState extends State<ModifyLitografia> {
   var _value2 = ['CBN', 'HUARI', 'TAQUIÑA PILSENER', 'TAQUIÑA EXPORT', 'DUCAL'];
 	var _value2Selected = 'CBN';
   //Dropdownbutton value3
-  var _value3 = ['LITOGRAFIA FONDO BLANCO', 'LITOGRAFIA 1ER COLOR'];
+  var _value3 = ['Adolfo', 'Carlos'];
 	var _value3Selected = 'Adolfo';
-
+  //Radiobutton
+  int _currentTimeValue = 1;
+  final _buttonOptions = [
+    TimeValue(1, "Reafilado"),
+    TimeValue(2, "Corte"),
+    TimeValue(3, "Corte y reafilado"),
+  ];
+  
+  String id;
   Timestamp fechaTrabajo;
-  String horaTrabajo;
   String turno;
   String producto;
-  String cliente;
+  String lote;
+  String hojas;
   String trabajo;
-  String hojasProducidas;
-  String hojasAProducir;
-  String materiaPrima;
-  String observacion;
+  String rechazoLitografia;
+  String responsable;
 
   @override
   Widget build(BuildContext context) {
     DateTime fechaActual = DateTime.now();
     Timestamp fechaActualFirebase = Timestamp.now();
     fechaTrabajo = fechaActualFirebase;
-    final productProvider = Provider.of<CRUDModelLitografia>(context);
+    final productProvider = Provider.of<CRUDModelTijeras>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Modificar registro'),
@@ -159,75 +170,15 @@ class _ModifyLitografiaState extends State<ModifyLitografia> {
                 Row(
                   children: <Widget>[
                     Expanded(
-                      flex: 2,
-                      child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                          Text("Cliente"),
-                          TextFormField(
-                            initialValue: widget.product.cliente,
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                fillColor: Colors.grey[300],
-                                filled: true,
-                              ),
-                              validator: (value) {
-                                if (value.isEmpty) {
-                                  return 'El campo debe estar llenado';
-                                }
-                              },
-                                onSaved: (value) => cliente = value
-                            ),
-                          ],
-                        ),
-                      )
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
                       flex: 1,
                       child: Padding(
                         padding: EdgeInsets.all(10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text("Trabajo"),
+                            Text("Lote"),
                             TextFormField(
-                              initialValue: widget.product.trabajo,
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                fillColor: Colors.grey[300],
-                                filled: true,
-                              ),
-                              validator: (value) {
-                                if (value.isEmpty) {
-                                  return 'El campo debe estar llenado';
-                                }
-                              },
-                                onSaved: (value) => trabajo = value
-                            ),
-                          ],
-                        ),
-                      )
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text("Hojas producidas"),
-                            TextFormField(
-                              initialValue: widget.product.hojasProducidas.toString(),
+                              initialValue: widget.product.lote.toString(),
                               keyboardType: TextInputType.numberWithOptions(),
                               decoration: InputDecoration(
                                 border: InputBorder.none,
@@ -239,7 +190,7 @@ class _ModifyLitografiaState extends State<ModifyLitografia> {
                                   return 'El campo debe estar llenado';
                                 }
                               },
-                                onSaved: (value) => hojasProducidas = value
+                                onSaved: (value) => lote = value
                             ),
                           ],
                         ),
@@ -252,9 +203,9 @@ class _ModifyLitografiaState extends State<ModifyLitografia> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text("Hojas a producir"),
+                            Text("Hojas"),
                             TextFormField(
-                              initialValue: widget.product.hojasAProducir.toString(),
+                              initialValue: widget.product.hojas.toString(),
                               keyboardType: TextInputType.numberWithOptions(),
                               decoration: InputDecoration(
                                 border: InputBorder.none,
@@ -266,7 +217,7 @@ class _ModifyLitografiaState extends State<ModifyLitografia> {
                                   return 'El campo debe estar llenado';
                                 }
                               },
-                                onSaved: (value) => hojasAProducir = value
+                                onSaved: (value) => hojas = value
                             ),
                           ],
                         ),
@@ -283,9 +234,49 @@ class _ModifyLitografiaState extends State<ModifyLitografia> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text("Materia prima"),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text("Turno"),
+                                Text("Guardado: ${widget.product.trabajo}", style: TextStyle(color: Colors.redAccent),),
+                              ],
+                          ),
+                            Container(
+                              height: 160,
+                              child: ListView(
+                                physics: const NeverScrollableScrollPhysics(),
+                                padding: EdgeInsets.all(8.0),
+                                children: _buttonOptions.map((timeValue) => RadioListTile(
+                                    groupValue: _currentTimeValue,
+                                    title: Text(timeValue._value),
+                                    value: timeValue._key,
+                                    onChanged: (val) {
+                                        setState(() {
+                                            _currentTimeValue = val;
+                                            trabajo = timeValue._value;
+                                        });
+                                    },
+                                )).toList(),
+                            ),
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text("Rechazo de litografia"),
                             TextFormField(
-                              initialValue: widget.product.materiaPrima,
+                              initialValue: widget.product.rechazoLitografia,
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 fillColor: Colors.grey[300],
@@ -296,7 +287,7 @@ class _ModifyLitografiaState extends State<ModifyLitografia> {
                                   return 'El campo debe estar llenado';
                                 }
                               },
-                                onSaved: (value) => materiaPrima = value
+                                onSaved: (value) => rechazoLitografia = value
                             ),
                           ],
                         ),
@@ -313,20 +304,26 @@ class _ModifyLitografiaState extends State<ModifyLitografia> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text("Observacion"),
-                            TextFormField(
-                              initialValue: widget.product.observacion,
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                fillColor: Colors.grey[300],
-                                filled: true,
-                              ),
-                              validator: (value) {
-                                if (value.isEmpty) {
-                                  return 'El campo debe estar llenado';
-                                }
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text("Responsable"),
+                                Text("Guardado: ${widget.product.responsable}", style: TextStyle(color: Colors.redAccent),),
+                              ],
+                            ),
+                            DropdownButton<String>(
+                              isExpanded: true,
+                              items: _value3.map((String dropDownStringItem) {
+                                return DropdownMenuItem<String>(
+                                  value: dropDownStringItem,
+                                  child: Text(dropDownStringItem),
+                                );
+                              }).toList(),
+                              onChanged: (String newValue3) {
+                                _onChangedValue3(newValue3);
+                                responsable = newValue3;
                               },
-                                onSaved: (value) => observacion = value
+                              value: _value3Selected,
                             ),
                           ],
                         ),
@@ -338,15 +335,21 @@ class _ModifyLitografiaState extends State<ModifyLitografia> {
                 splashColor: Colors.red,
                 onPressed: () async{
                   if (_formKey.currentState.validate()) {
+                    if (trabajo == null) {
+                      trabajo = widget.product.trabajo;
+                    }
                     if (turno == null) {
                       turno = widget.product.turno;
                     }
                     if (producto == null) {
                       producto = widget.product.producto;
                     } 
+                    if (responsable == null) {
+                      responsable = widget.product.responsable;
+                    } 
                     _formKey.currentState.save();
-                    await productProvider.updateProduct(Litografia(fechaTrabajo: fechaTrabajo, horaTrabajo: horaTrabajo, turno: turno, producto: producto, cliente: cliente, trabajo: trabajo, hojasProducidas: int.parse(hojasProducidas), hojasAProducir: int.parse(hojasAProducir), materiaPrima: materiaPrima, observacion: observacion),widget.product.id);
-                    Navigator.pushNamed(context, '/readLitografia');
+                    await productProvider.updateProduct(Tijeras(fechaTrabajo: fechaTrabajo, turno: turno, producto: producto, lote: int.parse(lote), hojas: int.parse(hojas), trabajo: trabajo, rechazoLitografia: rechazoLitografia, responsable: responsable),widget.product.id);
+                    Navigator.pushNamed(context, '/readTijeras');
                   }
                 },
                 child: Text('Modificar registro', style: TextStyle(color: Colors.white)),

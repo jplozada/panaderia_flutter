@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:panaderia_flutter/ui/views/inventory/readInventory.dart';
-import './views/inventory/addInventory.dart';
-import './views/inventory/inventoryDetails.dart';
 import 'package:panaderia_flutter/ui/views/litografia/readLitografia.dart';
 import './views/litografia/addLitografia.dart';
 import './views/litografia/litografiaDetails.dart';
+import 'package:panaderia_flutter/ui/views/tijeras/readTijeras.dart';
+import './views/tijeras/addTijeras.dart';
 import './views/homeView.dart';
 //import './views/homeProduction.dart';
 
@@ -16,18 +15,6 @@ class Router {
         return  MaterialPageRoute(
           builder: (_)=> HomeView()
         );
-      case '/addInventory' :
-        return MaterialPageRoute(
-          builder: (_)=> AddInventory()
-        ) ;
-  // case '/inventoryDetails' :
-  //   return MaterialPageRoute(
-  //       builder: (_)=> InventoryDetails()
-  //   ) ;
-      case '/readInventory' :
-        return MaterialPageRoute(
-            builder: (_)=> ReadInventory()
-        ) ;
       case '/addLitografia' :
         return MaterialPageRoute(
           builder: (_)=> AddLitografia()
@@ -35,6 +22,14 @@ class Router {
       case '/readLitografia' :
         return MaterialPageRoute(
             builder: (_)=> ReadLitografia()
+        ) ;
+      case '/addTijeras' :
+        return MaterialPageRoute(
+          builder: (_)=> AddTijeras()
+        ) ;
+      case '/readTijeras' :
+        return MaterialPageRoute(
+            builder: (_)=> ReadTijeras()
         ) ;
 
       default:

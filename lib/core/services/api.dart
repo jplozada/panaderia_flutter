@@ -1,12 +1,13 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
-class ApiInventory{
+
+class ApiLitografia{
   final Firestore _db = Firestore.instance;
   final String path;
   CollectionReference ref;
 
-  ApiInventory( this.path ) {
+  ApiLitografia( this.path ) {
     ref = _db.collection(path);
   }
 
@@ -14,7 +15,7 @@ class ApiInventory{
     return ref.getDocuments() ;
   }
   Stream<QuerySnapshot> streamDataCollection() {
-    return ref.snapshots() ;
+    return ref.orderBy('fechaTrabajo', descending:true).snapshots() ;
   }
   Future<DocumentSnapshot> getDocumentById(String id) {
     return ref.document(id).get();
@@ -29,12 +30,13 @@ class ApiInventory{
     return ref.document(id).updateData(data) ;
   }
 }
-class ApiLitografia{
+
+class ApiTijeras{
   final Firestore _db = Firestore.instance;
   final String path;
   CollectionReference ref;
 
-  ApiLitografia( this.path ) {
+  ApiTijeras( this.path ) {
     ref = _db.collection(path);
   }
 

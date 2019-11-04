@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
-import 'package:panaderia_flutter/ui/views/inventory/readInventory.dart';
 import 'package:panaderia_flutter/ui/views/litografia/readLitografia.dart';
+import 'package:panaderia_flutter/ui/views/tijeras/readtijeras.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -458,7 +457,7 @@ class LogInScreenState extends State<LogInScreen>
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      ReadInventory()),
+                                                      ReadTijeras()),
                                             );
                                           } else {
                                             if (widget._nombre ==
@@ -468,7 +467,7 @@ class LogInScreenState extends State<LogInScreen>
                                                 context,
                                                 MaterialPageRoute(
                                                     builder: (context) =>
-                                                        ReadInventory()),
+                                                        ReadLitografia()),
                                               );
                                             } else {
                                               if (widget._nombre ==
@@ -478,7 +477,7 @@ class LogInScreenState extends State<LogInScreen>
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          ReadInventory()),
+                                                          ReadLitografia()),
                                                 );
                                               } else {
                                                 if (widget._nombre ==
@@ -488,7 +487,7 @@ class LogInScreenState extends State<LogInScreen>
                                                     context,
                                                     MaterialPageRoute(
                                                         builder: (context) =>
-                                                            ReadInventory()),
+                                                            ReadLitografia()),
                                                   );
                                                 } else {
                                                   Fluttertoast.showToast(

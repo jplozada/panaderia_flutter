@@ -25,7 +25,7 @@ class _ReadLitografiaState extends State<ReadLitografia> {
         child: Icon(Icons.add),
       ),
       appBar: AppBar(
-        title: Text('Inventario'),
+        title: Text('Litografia'),
       ),
       body: Container(
         child: StreamBuilder(
