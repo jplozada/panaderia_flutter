@@ -15,7 +15,46 @@ class _AddLitografiaState extends State<AddLitografia> {
   var _value1 = ['1er turno', '2do turno'];
 	var _value1Selected = '1er turno';
   //Dropdownbutton value2
-  var _value2 = ['CBN', 'HUARI', 'TAQUIÑA PILSENER', 'TAQUIÑA EXPORT', 'DUCAL'];
+  var _value2 = [
+    'CBN',
+    'HUARI',
+    'TAQUIÑA PILSENER',
+    'TAQUIÑA EXPORT',
+    'DUCAL',
+    'PACEÑA ICE',
+    'MALTIN',
+    'EL INCA',
+    'IMPERIAL',
+    'PACEÑA 710',
+    'PACEÑA CENTENARIO',
+    'FRUTAL MANZANA',
+    'FRUTAL DURAZNO',
+    'HUARI CON MIEL',
+    'HUARI CON QUINUA',
+    'POTOSINA LIGHT',
+    'POTOSINA PILSENER',
+    'AUTENTICA',
+    'MALTA REAL',
+    'CORDILLERA',
+    'CERVEZA REAL',
+    'PACEÑA BLACK',
+    'HUARI D.N.',
+    'CASCADA L.P.',
+    'CASCADA SUR',
+    'TAQUIÑA CHICA',
+    'SODA POPULAR',
+    'COCA COLA',
+    'COMRURAL XXI',
+    'JUDAS',
+    'ULTRA',
+    'DURAZCO DEL VALLE',
+    'MANZANA DEL VALLE',
+    'PIÑA DEL VALLE',
+    'FRESA DEL VALLE',
+    'LISAS RECUPERADAS',
+    'HOJAS RECUPERADAS',
+    'HOJAS VIRGEN',
+  ];
 	var _value2Selected = 'CBN';
   //Dropdownbutton value3
   var _value3 = ['LITOGRAFIA FONDO BLANCO', 'LITOGRAFIA 1ER COLOR'];

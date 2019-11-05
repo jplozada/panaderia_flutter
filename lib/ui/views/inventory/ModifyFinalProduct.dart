@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:panaderia_flutter/core/models/finalProductModel.dart';
 import 'package:panaderia_flutter/core/viewmodels/CRUDModelFinalProduct.dart';
 import 'package:provider/provider.dart';
@@ -168,13 +169,15 @@ class _ModifyFinalProductState extends State<ModifyFinalProduct> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text("Cliente",
+                        Text(
+                          "Cliente",
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 18,
                             fontStyle: FontStyle.italic,
                             color: Colors.black,
-                          ),),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -204,12 +207,15 @@ class _ModifyFinalProductState extends State<ModifyFinalProduct> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text("Cantidad de Cajas",style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
-                          fontStyle: FontStyle.italic,
-                          color: Colors.black,
-                        ),),
+                        Text(
+                          "Cantidad de Cajas",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                            fontStyle: FontStyle.italic,
+                            color: Colors.black,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -239,12 +245,15 @@ class _ModifyFinalProductState extends State<ModifyFinalProduct> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text("Fecha",style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
-                          fontStyle: FontStyle.italic,
-                          color: Colors.black,
-                        ),),
+                        Text(
+                          "Fecha",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                            fontStyle: FontStyle.italic,
+                            color: Colors.black,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -252,20 +261,25 @@ class _ModifyFinalProductState extends State<ModifyFinalProduct> {
                     height: 16,
                   ),
                   TextFormField(
-                      initialValue: widget.product.fecha,
-                      keyboardType: TextInputType.numberWithOptions(),
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Fecha',
-                        fillColor: Colors.grey[300],
-                        filled: true,
-                      ),
-                      validator: (value) {
-                        if (value.isEmpty) {
-                          return 'Ingrese la Fecha';
-                        }
-                      },
-                      onSaved: (value) => fecha = value),
+                    enabled: false,
+//controller: TextEditingController(),
+//                    controller: email_controller,
+                    autofocus: false,
+                    initialValue: widget.product.fecha,
+                    keyboardType: TextInputType.numberWithOptions(),
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Fecha',
+                      fillColor: Colors.grey[300],
+                      filled: true,
+                    ),
+//                    validator: (value) {
+//                      if (value.isEmpty) {
+//                        return 'Ingrese la Fecha';
+//                      }
+//                    },
+//                    onSaved: (value) => fecha = value,
+                  ),
                   SizedBox(
                     height: 16,
                   ),
@@ -273,12 +287,15 @@ class _ModifyFinalProductState extends State<ModifyFinalProduct> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text("Hora",style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
-                          fontStyle: FontStyle.italic,
-                          color: Colors.black,
-                        ),),
+                        Text(
+                          "Hora",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                            fontStyle: FontStyle.italic,
+                            color: Colors.black,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -286,6 +303,10 @@ class _ModifyFinalProductState extends State<ModifyFinalProduct> {
                     height: 16,
                   ),
                   TextFormField(
+                    enabled: false,
+//controller: TextEditingController(),
+//                    controller: email_controller,
+                    autofocus: false,
                     initialValue: widget.product.hora,
                     keyboardType: TextInputType.numberWithOptions(),
                     decoration: InputDecoration(
@@ -294,12 +315,12 @@ class _ModifyFinalProductState extends State<ModifyFinalProduct> {
                       fillColor: Colors.grey[300],
                       filled: true,
                     ),
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Introduzca el Numero de Cantidad de Cajas';
-                      }
-                    },
-                    onSaved: (value) => hora = value,
+//                    validator: (value) {
+//                      if (value.isEmpty) {
+//                        return 'Introduzca el Numero de Cantidad de Cajas';
+//                      }
+//                    },
+//                    onSaved: (value) => hora = value,
                   ),
                   SizedBox(
                     height: 16,
@@ -308,12 +329,15 @@ class _ModifyFinalProductState extends State<ModifyFinalProduct> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text("Estado",style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
-                          fontStyle: FontStyle.italic,
-                          color: Colors.black,
-                        ),),
+                        Text(
+                          "Estado",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                            fontStyle: FontStyle.italic,
+                            color: Colors.black,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -355,12 +379,15 @@ class _ModifyFinalProductState extends State<ModifyFinalProduct> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text("Tipo PVC",style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
-                          fontStyle: FontStyle.italic,
-                          color: Colors.black,
-                        ),),
+                        Text(
+                          "Tipo PVC",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                            fontStyle: FontStyle.italic,
+                            color: Colors.black,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -390,6 +417,8 @@ class _ModifyFinalProductState extends State<ModifyFinalProduct> {
                     onPressed: () async {
                       tipoPVC = _currentPVC;
                       estado = _currentEstado;
+                      fecha = new DateFormat.yMd().format(new DateTime.now());
+                      hora = new DateFormat.Hms().format(new DateTime.now());
                       if (_formKey.currentState.validate()) {
                         _formKey.currentState.save();
                         await productProvider.updateProduct(

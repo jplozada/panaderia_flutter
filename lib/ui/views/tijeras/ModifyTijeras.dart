@@ -25,7 +25,46 @@ class _ModifyTijerasState extends State<ModifyTijeras> {
   var _value1 = ['1er turno', '2do turno'];
 	var _value1Selected = '1er turno';
   //Dropdownbutton value2
-  var _value2 = ['CBN', 'HUARI', 'TAQUIÑA PILSENER', 'TAQUIÑA EXPORT', 'DUCAL'];
+  var _value2 = [
+    'CBN',
+    'HUARI',
+    'TAQUIÑA PILSENER',
+    'TAQUIÑA EXPORT',
+    'DUCAL',
+    'PACEÑA ICE',
+    'MALTIN',
+    'EL INCA',
+    'IMPERIAL',
+    'PACEÑA 710',
+    'PACEÑA CENTENARIO',
+    'FRUTAL MANZANA',
+    'FRUTAL DURAZNO',
+    'HUARI CON MIEL',
+    'HUARI CON QUINUA',
+    'POTOSINA LIGHT',
+    'POTOSINA PILSENER',
+    'AUTENTICA',
+    'MALTA REAL',
+    'CORDILLERA',
+    'CERVEZA REAL',
+    'PACEÑA BLACK',
+    'HUARI D.N.',
+    'CASCADA L.P.',
+    'CASCADA SUR',
+    'TAQUIÑA CHICA',
+    'SODA POPULAR',
+    'COCA COLA',
+    'COMRURAL XXI',
+    'JUDAS',
+    'ULTRA',
+    'DURAZCO DEL VALLE',
+    'MANZANA DEL VALLE',
+    'PIÑA DEL VALLE',
+    'FRESA DEL VALLE',
+    'LISAS RECUPERADAS',
+    'HOJAS RECUPERADAS',
+    'HOJAS VIRGEN',
+  ];
 	var _value2Selected = 'CBN';
   //Dropdownbutton value3
   var _value3 = ['Adolfo', 'Carlos'];
@@ -47,6 +86,23 @@ class _ModifyTijerasState extends State<ModifyTijeras> {
   String trabajo;
   String rechazoLitografia;
   String responsable;
+
+  @override
+  void initState() {
+    _value1Selected = widget.product.turno;
+    _value2Selected = widget.product.producto;
+    _value3Selected = widget.product.responsable;
+    if(widget.product.trabajo == 'Reafilado'){
+      _currentTimeValue = 1;
+    }
+    if(widget.product.trabajo == 'Corte'){
+      _currentTimeValue = 2;
+    }
+    if(widget.product.trabajo == 'Corte y reafilado'){
+      _currentTimeValue = 3;
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -94,10 +150,6 @@ class _ModifyTijerasState extends State<ModifyTijeras> {
                         ),
                       )
                     ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
                     Expanded(
                       flex: 1,
                       child: Padding(
@@ -105,13 +157,7 @@ class _ModifyTijerasState extends State<ModifyTijeras> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                Text("Turno"),
-                                Text("Guardado: ${widget.product.turno}", style: TextStyle(color: Colors.redAccent),),
-                              ],
-                          ),
+                          Text("Turno"),
                           DropdownButton<String>(
                             items: _value1.map((String dropDownStringItem) {
                               return DropdownMenuItem<String>(
@@ -140,13 +186,7 @@ class _ModifyTijerasState extends State<ModifyTijeras> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                Text("Producto"),
-                                Text("Guardado: ${widget.product.producto}", style: TextStyle(color: Colors.redAccent),),
-                              ],
-                            ),
+                          Text("Producto"),
                           DropdownButton<String>(
                             isExpanded: true,
                             items: _value2.map((String dropDownStringItem) {
@@ -234,13 +274,7 @@ class _ModifyTijerasState extends State<ModifyTijeras> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                Text("Turno"),
-                                Text("Guardado: ${widget.product.trabajo}", style: TextStyle(color: Colors.redAccent),),
-                              ],
-                          ),
+                            Text("Trabajo"),
                             Container(
                               height: 160,
                               child: ListView(
@@ -304,13 +338,7 @@ class _ModifyTijerasState extends State<ModifyTijeras> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                Text("Responsable"),
-                                Text("Guardado: ${widget.product.responsable}", style: TextStyle(color: Colors.redAccent),),
-                              ],
-                            ),
+                            Text("Responsable"),
                             DropdownButton<String>(
                               isExpanded: true,
                               items: _value3.map((String dropDownStringItem) {
