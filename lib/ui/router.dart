@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:panaderia_flutter/ui/views/ensamblaje/addEnsamblaje.dart';
+import 'package:panaderia_flutter/ui/views/ensamblaje/readEnsamblaje.dart';
 import 'package:panaderia_flutter/ui/views/inventory/addFinalProduct.dart';
 import 'package:panaderia_flutter/ui/views/litografia/readLitografia.dart';
 import './views/litografia/addLitografia.dart';
-import './views/litografia/litografiaDetails.dart';
 import 'package:panaderia_flutter/ui/views/tijeras/readTijeras.dart';
 import './views/tijeras/addTijeras.dart';
 import './views/homeView.dart';
 import 'views/inventory/readFinalProduct.dart';
-//import './views/homeProduction.dart';
 
 class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -40,6 +40,14 @@ class Router {
       case '/readFinalProduct' :
         return MaterialPageRoute(
             builder: (_)=> ReadFinalProduct()
+        ) ;
+      case '/addEnsamblaje' :
+        return MaterialPageRoute(
+            builder: (_)=> AddEnsamblaje()
+        ) ;
+      case '/readEnsamblaje' :
+        return MaterialPageRoute(
+            builder: (_)=> ReadEnsamblaje()
         ) ;
       default:
         return MaterialPageRoute(

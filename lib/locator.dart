@@ -1,5 +1,6 @@
 
 import 'package:get_it/get_it.dart';
+import 'package:panaderia_flutter/core/viewmodels/CRUDModelEnsamblaje.dart';
 import 'package:panaderia_flutter/core/viewmodels/CRUDModelFinalProduct.dart';
 import 'package:panaderia_flutter/core/viewmodels/CRUDModelLitografia.dart';
 import 'package:panaderia_flutter/core/viewmodels/CRUDModelTijeras.dart';
@@ -14,4 +15,6 @@ void setupLocator() {
   locator.registerLazySingleton(() => CRUDModelTijeras()) ;
   locator.registerLazySingleton(() => ApiFinalProduct('finalProduct'));
   locator.registerLazySingleton(() => CRUDModelFinalProduct());
+  locator.registerLazySingleton(() => ApiEnsamblaje('ensamblaje'));
+  locator.registerLazySingleton(() => CRUDModelEnsamblaje());
 }

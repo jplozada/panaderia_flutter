@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:panaderia_flutter/ui/views/ensamblaje/readEnsamblaje.dart';
 import 'package:panaderia_flutter/ui/views/inventory/readFinalProduct.dart';
 import 'package:panaderia_flutter/ui/views/litografia/readLitografia.dart';
 import 'package:panaderia_flutter/ui/views/tijeras/readtijeras.dart';
@@ -478,7 +479,7 @@ class LogInScreenState extends State<LogInScreen>
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          ReadLitografia()),
+                                                          ReadEnsamblaje()),
                                                 );
                                               } else {
                                                 if (widget._nombre ==
