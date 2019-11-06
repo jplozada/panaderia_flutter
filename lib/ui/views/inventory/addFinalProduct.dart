@@ -240,7 +240,7 @@ class _AddFinalProductState extends State<AddFinalProduct> {
                       onPressed: () async {
                         estado = _currentEstado;
                         tipoPVC = _currentPVC;
-                        fecha = new DateFormat.yMd().format(new DateTime.now());
+                        fecha = new DateFormat.yMd().format(new DateTime.now()) + ' ' +new DateFormat.Hms().format(new DateTime.now());
                         hora = new DateFormat.Hms().format(new DateTime.now());
                         print(_currentPVC);
                         print(fecha);

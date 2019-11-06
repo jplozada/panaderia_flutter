@@ -417,7 +417,7 @@ class _ModifyFinalProductState extends State<ModifyFinalProduct> {
                     onPressed: () async {
                       tipoPVC = _currentPVC;
                       estado = _currentEstado;
-                      fecha = new DateFormat.yMd().format(new DateTime.now());
+                      fecha = new DateFormat.yMd().format(new DateTime.now()) + ' ' + new DateFormat.Hms().format(new DateTime.now());
                       hora = new DateFormat.Hms().format(new DateTime.now());
                       if (_formKey.currentState.validate()) {
                         _formKey.currentState.save();

@@ -73,7 +73,7 @@ class ApiFinalProduct{
     return ref.getDocuments() ;
   }
   Stream<QuerySnapshot> streamDataCollection() {
-    return ref.snapshots() ;
+    return ref.orderBy('fecha',descending: true,).snapshots();
   }
   Future<DocumentSnapshot> getDocumentById(String id) {
     return ref.document(id).get();
