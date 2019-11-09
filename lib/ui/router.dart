@@ -4,6 +4,8 @@ import 'package:panaderia_flutter/ui/views/ensamblaje/addEnsamblaje.dart';
 import 'package:panaderia_flutter/ui/views/ensamblaje/readEnsamblaje.dart';
 import 'package:panaderia_flutter/ui/views/inventory/addFinalProduct.dart';
 import 'package:panaderia_flutter/ui/views/litografia/readLitografia.dart';
+import 'package:panaderia_flutter/ui/views/troqueladora/addTroqueladora.dart';
+import 'package:panaderia_flutter/ui/views/troqueladora/readTroqueladora.dart';
 import './views/litografia/addLitografia.dart';
 import 'package:panaderia_flutter/ui/views/tijeras/readTijeras.dart';
 import './views/tijeras/addTijeras.dart';
@@ -48,6 +50,14 @@ class Router {
       case '/readEnsamblaje' :
         return MaterialPageRoute(
             builder: (_)=> ReadEnsamblaje()
+        ) ;
+      case '/addTroqueladora' :
+        return MaterialPageRoute(
+          builder: (_)=> AddTroqueladora()
+        ) ;
+      case '/readTroqueladora' :
+        return MaterialPageRoute(
+          builder: (_)=> ReadTroqueladora()
         ) ;
       default:
         return MaterialPageRoute(

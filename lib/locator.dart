@@ -4,6 +4,7 @@ import 'package:panaderia_flutter/core/viewmodels/CRUDModelEnsamblaje.dart';
 import 'package:panaderia_flutter/core/viewmodels/CRUDModelFinalProduct.dart';
 import 'package:panaderia_flutter/core/viewmodels/CRUDModelLitografia.dart';
 import 'package:panaderia_flutter/core/viewmodels/CRUDModelTijeras.dart';
+import 'package:panaderia_flutter/core/viewmodels/CRUDModelTroqueladora.dart';
 import './core/services/api.dart';
 
 GetIt locator = GetIt();
@@ -17,4 +18,6 @@ void setupLocator() {
   locator.registerLazySingleton(() => CRUDModelFinalProduct());
   locator.registerLazySingleton(() => ApiEnsamblaje('ensamblaje'));
   locator.registerLazySingleton(() => CRUDModelEnsamblaje());
+  locator.registerLazySingleton(() => ApiTroqueladora('troqueladora'));
+  locator.registerLazySingleton(() => CRUDModelTroqueladora()) ;
 }

@@ -5,9 +5,9 @@ import 'package:panaderia_flutter/core/viewmodels/CRUDModelEnsamblaje.dart';
 import 'package:provider/provider.dart';
 
 class TimeValue {
-    final int _key;
-    final String _value;
-    TimeValue(this._key, this._value);
+  final int _key;
+  final String _value;
+  TimeValue(this._key, this._value);
 }
 
 class ModifyEnsamblaje extends StatefulWidget {
@@ -105,103 +105,93 @@ class _ModifyEnsamblajeState extends State<ModifyEnsamblaje> {
     fechaTrabajo = fechaActualFirebase;
     final productProvider = Provider.of<CRUDModelEnsamblaje>(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Modificar registro'),
-      ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Padding(
-        padding: EdgeInsets.all(8),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: <Widget>[
-              Row(
-                  children: <Widget>[
-                    Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                          Text("Fecha trabajo"),
-                          Text("${widget.product.fechaTrabajo.toDate().day}-${widget.product.fechaTrabajo.toDate().month}-${widget.product.fechaTrabajo.toDate().year}",),
-                          ],
-                        ),
-                      )
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                          Text("Hora trabajo"),
-                          Text("${widget.product.fechaTrabajo.toDate().hour}:${widget.product.fechaTrabajo.toDate().minute}:${widget.product.fechaTrabajo.toDate().second}",),
-                          ],
-                        ),
-                      )
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                          Text("Turno"),
-                          DropdownButton<String>(
-                            items: _value1.map((String dropDownStringItem) {
-                              return DropdownMenuItem<String>(
-                                value: dropDownStringItem,
-                                child: Text(dropDownStringItem),
-                              );
-                            }).toList(),
-                            onChanged: (String newValue1) {
-                              _onChangedValue1(newValue1);
-                              turno = newValue1;
-                            },
-                            value: _value1Selected,
-                          ),
-                          ],
-                        ),
-                      )
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      flex: 2,
-                      child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                          Text("Producto"),
-                          DropdownButton<String>(
-                            isExpanded: true,
-                            items: _value2.map((String dropDownStringItem) {
-                              return DropdownMenuItem<String>(
-                                value: dropDownStringItem,
-                                child: Text(dropDownStringItem),
-                              );
-                            }).toList(),
-                            onChanged: (String newValue2) {
-                              _onChangedValue2(newValue2);
-                              producto = newValue2;
-                            },
-                            value: _value2Selected,
-                          ),
-                          ],
-                        ),
-                      )
-                    ),
-                  ],
-                ),
-                Row(
+        appBar: AppBar(
+          title: Text('Modificar registro'),
+        ),
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Padding(
+            padding: EdgeInsets.all(8),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                          flex: 1,
+                          child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Fecha trabajo",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                Text(
+                                  "${widget.product.fechaTrabajo.toDate().day}-${widget.product.fechaTrabajo.toDate().month}-${widget.product.fechaTrabajo.toDate().year}",
+                                ),
+                              ],
+                            ),
+                          )),
+                      Expanded(
+                          flex: 1,
+                          child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Hora trabajo",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                Text(
+                                  "${widget.product.fechaTrabajo.toDate().hour}:${widget.product.fechaTrabajo.toDate().minute}:${widget.product.fechaTrabajo.toDate().second}",
+                                ),
+                              ],
+                            ),
+                          )),
+                      Expanded(
+                          flex: 1,
+                          child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Turno",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                DropdownButton<String>(
+                                  items:
+                                      _value1.map((String dropDownStringItem) {
+                                    return DropdownMenuItem<String>(
+                                      value: dropDownStringItem,
+                                      child: Text(dropDownStringItem),
+                                    );
+                                  }).toList(),
+                                  onChanged: (String newValue1) {
+                                    _onChangedValue1(newValue1);
+                                    turno = newValue1;
+                                  },
+                                  value: _value1Selected,
+                                ),
+                              ],
+                            ),
+                          )),
+                    ],
+                  ),
+                  Row(
                     children: <Widget>[
                       Expanded(
                           flex: 2,
@@ -210,268 +200,369 @@ class _ModifyEnsamblajeState extends State<ModifyEnsamblaje> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Tapas, desperdicio"),
+                                Text(
+                                  "Producto",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                DropdownButton<String>(
+                                  isExpanded: true,
+                                  items:
+                                      _value2.map((String dropDownStringItem) {
+                                    return DropdownMenuItem<String>(
+                                      value: dropDownStringItem,
+                                      child: Text(dropDownStringItem),
+                                    );
+                                  }).toList(),
+                                  onChanged: (String newValue2) {
+                                    _onChangedValue2(newValue2);
+                                    producto = newValue2;
+                                  },
+                                  value: _value2Selected,
+                                ),
                               ],
                             ),
                           )),
                     ],
                   ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text("Cajas"),
-                            TextFormField(
-                              initialValue: widget.product.cajas.toString(),
-                              keyboardType: TextInputType.numberWithOptions(),
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                fillColor: Colors.grey[300],
-                                filled: true,
-                              ),
-                              validator: (value) {
-                                if (value.isEmpty) {
-                                  return 'El campo debe estar llenado';
-                                }
-                              },
-                                onSaved: (value) => cajas = value
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                          flex: 2,
+                          child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Tapas, desperdicio",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
-                      )
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text("Tapas"),
-                            TextFormField(
-                              initialValue: widget.product.tapas.toString(),
-                              keyboardType: TextInputType.numberWithOptions(),
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                fillColor: Colors.grey[300],
-                                filled: true,
-                              ),
-                              validator: (value) {
-                                if (value.isEmpty) {
-                                  return 'El campo debe estar llenado';
-                                }
-                              },
-                                onSaved: (value) => tapas = value
+                          )),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                          flex: 1,
+                          child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Cajas",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                TextFormField(
+                                    initialValue:
+                                        widget.product.cajas.toString(),
+                                    keyboardType:
+                                        TextInputType.numberWithOptions(),
+                                    decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      fillColor: Colors.grey[300],
+                                      filled: true,
+                                    ),
+                                    validator: (value) {
+                                      if (value.isEmpty) {
+                                        return 'El campo debe estar llenado';
+                                      }
+                                    },
+                                    onSaved: (value) => cajas = value),
+                              ],
                             ),
-                          ],
-                        ),
-                      )
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      flex: 2,
-                      child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                          Text("Maquinista"),
-                          DropdownButton<String>(
-                            isExpanded: true,
-                            items: _value3.map((String dropDownStringItem) {
-                              return DropdownMenuItem<String>(
-                                value: dropDownStringItem,
-                                child: Text(dropDownStringItem),
-                              );
-                            }).toList(),
-                            onChanged: (String newValue3) {
-                              _onChangedValue3(newValue3);
-                              maquinista = newValue3;
-                            },
-                            value: _value3Selected,
-                          ),
-                          ],
-                        ),
-                      )
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text("Sin PVC"),
-                            TextFormField(
-                              initialValue: widget.product.sinPvc.toString(),
-                              keyboardType: TextInputType.numberWithOptions(),
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                fillColor: Colors.grey[300],
-                                filled: true,
-                              ),
-                              validator: (value) {
-                                if (value.isEmpty) {
-                                  return 'El campo debe estar llenado';
-                                }
-                              },
-                                onSaved: (value) => sinPvc = value
+                          )),
+                      Expanded(
+                          flex: 1,
+                          child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Tapas",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                TextFormField(
+                                    initialValue:
+                                        widget.product.tapas.toString(),
+                                    keyboardType:
+                                        TextInputType.numberWithOptions(),
+                                    decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      fillColor: Colors.grey[300],
+                                      filled: true,
+                                    ),
+                                    validator: (value) {
+                                      if (value.isEmpty) {
+                                        return 'El campo debe estar llenado';
+                                      }
+                                    },
+                                    onSaved: (value) => tapas = value),
+                              ],
                             ),
-                          ],
-                        ),
-                      )
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text("Con PVC"),
-                            TextFormField(
-                              initialValue: widget.product.conPvc.toString(),
-                              keyboardType: TextInputType.numberWithOptions(),
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                fillColor: Colors.grey[300],
-                                filled: true,
-                              ),
-                              validator: (value) {
-                                if (value.isEmpty) {
-                                  return 'El campo debe estar llenado';
-                                }
-                              },
-                                onSaved: (value) => conPvc = value
+                          )),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                          flex: 2,
+                          child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Maquinista",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                DropdownButton<String>(
+                                  isExpanded: true,
+                                  items:
+                                      _value3.map((String dropDownStringItem) {
+                                    return DropdownMenuItem<String>(
+                                      value: dropDownStringItem,
+                                      child: Text(dropDownStringItem),
+                                    );
+                                  }).toList(),
+                                  onChanged: (String newValue3) {
+                                    _onChangedValue3(newValue3);
+                                    maquinista = newValue3;
+                                  },
+                                  value: _value3Selected,
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
-                      )
-                    ),
-                  ],
-                ),
-              Row(
-                  children: <Widget>[
-                    Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text("Maquina"),
-                            DropdownButton<String>(
-                              isExpanded: true,
-                              items: _value4.map((String dropDownStringItem) {
-                                return DropdownMenuItem<String>(
-                                  value: dropDownStringItem,
-                                  child: Text(dropDownStringItem),
-                                );
-                              }).toList(),
-                              onChanged: (String newValue4) {
-                                _onChangedValue4(newValue4);
-                                maquina = newValue4;
-                              },
-                              value: _value4Selected,
+                          )),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                          flex: 1,
+                          child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Sin PVC",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                TextFormField(
+                                    initialValue:
+                                        widget.product.sinPvc.toString(),
+                                    keyboardType:
+                                        TextInputType.numberWithOptions(),
+                                    decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      fillColor: Colors.grey[300],
+                                      filled: true,
+                                    ),
+                                    validator: (value) {
+                                      if (value.isEmpty) {
+                                        return 'El campo debe estar llenado';
+                                      }
+                                    },
+                                    onSaved: (value) => sinPvc = value),
+                              ],
                             ),
-                          ],
-                        ),
-                      )
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text("Responsable"),
-                            DropdownButton<String>(
-                              isExpanded: true,
-                              items: _value5.map((String dropDownStringItem) {
-                                return DropdownMenuItem<String>(
-                                  value: dropDownStringItem,
-                                  child: Text(dropDownStringItem),
-                                );
-                              }).toList(),
-                              onChanged: (String newValue5) {
-                                _onChangedValue5(newValue5);
-                                responsable = newValue5;
-                              },
-                              value: _value5Selected,
+                          )),
+                      Expanded(
+                          flex: 1,
+                          child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Con PVC",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                TextFormField(
+                                    initialValue:
+                                        widget.product.conPvc.toString(),
+                                    keyboardType:
+                                        TextInputType.numberWithOptions(),
+                                    decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      fillColor: Colors.grey[300],
+                                      filled: true,
+                                    ),
+                                    validator: (value) {
+                                      if (value.isEmpty) {
+                                        return 'El campo debe estar llenado';
+                                      }
+                                    },
+                                    onSaved: (value) => conPvc = value),
+                              ],
                             ),
-                          ],
-                        ),
-                      )
-                    ),
-                  ],
-                ),
-              RaisedButton(
-                splashColor: Colors.red,
-                onPressed: () async{
-                  if (_formKey.currentState.validate()) {
-                    if (turno == null) {
-                      turno = widget.product.turno;
-                    }
-                    if (producto == null) {
-                      producto = widget.product.producto;
-                    }
-                    if (maquinista == null) {
-                      maquinista = widget.product.maquinista;
-                    }
-                    if (maquina == null) {
-                      maquina = widget.product.maquina;
-                    }
-                    if (responsable == null) {
-                      responsable = widget.product.responsable;
-                    } 
-                    _formKey.currentState.save();
-                    await productProvider.updateProduct(Ensamblaje(fechaTrabajo: fechaTrabajo, turno: turno, producto: producto, cajas: int.parse(cajas), tapas: int.parse(tapas), maquinista: maquinista, sinPvc: int.parse(sinPvc), conPvc: int.parse(conPvc), maquina: maquina, responsable: responsable),widget.product.id);
-                    Navigator.pushNamed(context, '/readEnsamblaje');
-                  }
-                },
-                child: Text('Modificar registro', style: TextStyle(color: Colors.white)),
-                color: Colors.blue,
-              )
-            ],
+                          )),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                          flex: 1,
+                          child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Maquina",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                DropdownButton<String>(
+                                  isExpanded: true,
+                                  items:
+                                      _value4.map((String dropDownStringItem) {
+                                    return DropdownMenuItem<String>(
+                                      value: dropDownStringItem,
+                                      child: Text(dropDownStringItem),
+                                    );
+                                  }).toList(),
+                                  onChanged: (String newValue4) {
+                                    _onChangedValue4(newValue4);
+                                    maquina = newValue4;
+                                  },
+                                  value: _value4Selected,
+                                ),
+                              ],
+                            ),
+                          )),
+                      Expanded(
+                          flex: 1,
+                          child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Responsable",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                DropdownButton<String>(
+                                  isExpanded: true,
+                                  items:
+                                      _value5.map((String dropDownStringItem) {
+                                    return DropdownMenuItem<String>(
+                                      value: dropDownStringItem,
+                                      child: Text(dropDownStringItem),
+                                    );
+                                  }).toList(),
+                                  onChanged: (String newValue5) {
+                                    _onChangedValue5(newValue5);
+                                    responsable = newValue5;
+                                  },
+                                  value: _value5Selected,
+                                ),
+                              ],
+                            ),
+                          )),
+                    ],
+                  ),
+                  RaisedButton(
+                    splashColor: Colors.red,
+                    onPressed: () async {
+                      if (_formKey.currentState.validate()) {
+                        if (turno == null) {
+                          turno = widget.product.turno;
+                        }
+                        if (producto == null) {
+                          producto = widget.product.producto;
+                        }
+                        if (maquinista == null) {
+                          maquinista = widget.product.maquinista;
+                        }
+                        if (maquina == null) {
+                          maquina = widget.product.maquina;
+                        }
+                        if (responsable == null) {
+                          responsable = widget.product.responsable;
+                        }
+                        _formKey.currentState.save();
+                        await productProvider.updateProduct(
+                            Ensamblaje(
+                                fechaTrabajo: fechaTrabajo,
+                                turno: turno,
+                                producto: producto,
+                                cajas: int.parse(cajas),
+                                tapas: int.parse(tapas),
+                                maquinista: maquinista,
+                                sinPvc: int.parse(sinPvc),
+                                conPvc: int.parse(conPvc),
+                                maquina: maquina,
+                                responsable: responsable),
+                            widget.product.id);
+                        Navigator.pushNamed(context, '/readEnsamblaje');
+                      }
+                    },
+                    child: Text('Modificar registro',
+                        style: TextStyle(color: Colors.white)),
+                    color: Colors.blue,
+                  )
+                ],
+              ),
+            ),
           ),
-        ),
-      ),
-      )
-    );
+        ));
   }
+
   void _onChangedValue1(String newValue1) {
-	  setState(() {
-		  this._value1Selected = newValue1;
-	  });
+    setState(() {
+      this._value1Selected = newValue1;
+    });
   }
+
   void _onChangedValue2(String newValue2) {
-	  setState(() {
-		  this._value2Selected = newValue2;
-	  });
+    setState(() {
+      this._value2Selected = newValue2;
+    });
   }
+
   void _onChangedValue3(String newValue3) {
-	  setState(() {
-		  this._value3Selected = newValue3;
-	  });
+    setState(() {
+      this._value3Selected = newValue3;
+    });
   }
+
   void _onChangedValue4(String newValue4) {
     setState(() {
       this._value4Selected = newValue4;
     });
   }
+
   void _onChangedValue5(String newValue5) {
     setState(() {
       this._value5Selected = newValue5;

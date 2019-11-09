@@ -111,7 +111,13 @@ class _AddTijerasState extends State<AddTijeras> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Fecha trabajo"),
+                                Text(
+                                  "Fecha trabajo",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 Text(
                                   "${fechaActual.year}-${fechaActual.month}-${fechaActual.day}",
                                 ),
@@ -125,7 +131,13 @@ class _AddTijerasState extends State<AddTijeras> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Turno"),
+                                Text(
+                                  "Turno",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 DropdownButton<String>(
                                   items:
                                       _value1.map((String dropDownStringItem) {
@@ -155,7 +167,13 @@ class _AddTijerasState extends State<AddTijeras> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Producto"),
+                                Text(
+                                  "Producto",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 DropdownButton<String>(
                                   isExpanded: true,
                                   items:
@@ -186,7 +204,13 @@ class _AddTijerasState extends State<AddTijeras> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Lote"),
+                                Text(
+                                  "Lote",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 TextFormField(
                                     keyboardType:
                                         TextInputType.numberWithOptions(),
@@ -211,7 +235,13 @@ class _AddTijerasState extends State<AddTijeras> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Hojas"),
+                                Text(
+                                  "Hojas",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 TextFormField(
                                     keyboardType:
                                         TextInputType.numberWithOptions(),
@@ -240,7 +270,13 @@ class _AddTijerasState extends State<AddTijeras> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text("Trabajo"),
+                              Text(
+                                "Trabajo",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                ),
+                              ),
                               Container(
                                 height: 160,
                                 child: ListView(
@@ -276,7 +312,13 @@ class _AddTijerasState extends State<AddTijeras> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Rechazo de litografia"),
+                                Text(
+                                  "Rechazo de litografia",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 TextFormField(
                                     decoration: InputDecoration(
                                       border: InputBorder.none,
@@ -304,7 +346,13 @@ class _AddTijerasState extends State<AddTijeras> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Responsable"),
+                                Text(
+                                  "Responsable",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 DropdownButton<String>(
                                   isExpanded: true,
                                   items:

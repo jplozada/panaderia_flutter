@@ -111,7 +111,13 @@ class _AddEnsamblajeState extends State<AddEnsamblaje> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Fecha trabajo"),
+                                Text(
+                                  "Fecha trabajo",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 Text(
                                   "${fechaActual.year}-${fechaActual.month}-${fechaActual.day}",
                                 ),
@@ -125,7 +131,13 @@ class _AddEnsamblajeState extends State<AddEnsamblaje> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Turno"),
+                                Text(
+                                  "Turno",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 DropdownButton<String>(
                                   items:
                                       _value1.map((String dropDownStringItem) {
@@ -155,7 +167,13 @@ class _AddEnsamblajeState extends State<AddEnsamblaje> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Producto"),
+                                Text(
+                                  "Producto",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 DropdownButton<String>(
                                   isExpanded: true,
                                   items:
@@ -186,7 +204,13 @@ class _AddEnsamblajeState extends State<AddEnsamblaje> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Tapas, desperdicio"),
+                                Text(
+                                  "Tapas, desperdicio",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
                               ],
                             ),
                           )),
@@ -201,7 +225,13 @@ class _AddEnsamblajeState extends State<AddEnsamblaje> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Cajas"),
+                                Text(
+                                  "Cajas",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 TextFormField(
                                     keyboardType:
                                         TextInputType.numberWithOptions(),
@@ -226,7 +256,13 @@ class _AddEnsamblajeState extends State<AddEnsamblaje> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Tapas"),
+                                Text(
+                                  "Tapas",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 TextFormField(
                                     keyboardType:
                                         TextInputType.numberWithOptions(),
@@ -255,7 +291,13 @@ class _AddEnsamblajeState extends State<AddEnsamblaje> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Maquinista"),
+                                Text(
+                                  "Maquinista",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 DropdownButton<String>(
                                   isExpanded: true,
                                   items:
@@ -286,7 +328,13 @@ class _AddEnsamblajeState extends State<AddEnsamblaje> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Sin Pvc"),
+                                Text(
+                                  "Sin Pvc",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 TextFormField(
                                     keyboardType:
                                         TextInputType.numberWithOptions(),
@@ -311,7 +359,13 @@ class _AddEnsamblajeState extends State<AddEnsamblaje> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Con Pvc"),
+                                Text(
+                                  "Con Pvc",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 TextFormField(
                                     keyboardType:
                                         TextInputType.numberWithOptions(),
@@ -340,7 +394,13 @@ class _AddEnsamblajeState extends State<AddEnsamblaje> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Maquina"),
+                                Text(
+                                  "Maquina",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 DropdownButton<String>(
                                   isExpanded: true,
                                   items:
@@ -359,8 +419,7 @@ class _AddEnsamblajeState extends State<AddEnsamblaje> {
                                 ),
                               ],
                             ),
-                          )
-                        ),
+                          )),
                       Expanded(
                           flex: 2,
                           child: Padding(
@@ -368,7 +427,13 @@ class _AddEnsamblajeState extends State<AddEnsamblaje> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Responsable"),
+                                Text(
+                                  "Responsable",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 DropdownButton<String>(
                                   isExpanded: true,
                                   items:
@@ -387,8 +452,7 @@ class _AddEnsamblajeState extends State<AddEnsamblaje> {
                                 ),
                               ],
                             ),
-                          )
-                        ),
+                          )),
                     ],
                   ),
                   RaisedButton(
@@ -438,7 +502,7 @@ class _AddEnsamblajeState extends State<AddEnsamblaje> {
       this._value3Selected = newValue3;
     });
   }
-  
+
   void _onChangedValue4(String newValue4) {
     setState(() {
       this._value4Selected = newValue4;

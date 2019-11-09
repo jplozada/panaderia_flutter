@@ -5,6 +5,7 @@ import 'package:panaderia_flutter/ui/views/ensamblaje/readEnsamblaje.dart';
 import 'package:panaderia_flutter/ui/views/inventory/readFinalProduct.dart';
 import 'package:panaderia_flutter/ui/views/litografia/readLitografia.dart';
 import 'package:panaderia_flutter/ui/views/tijeras/readtijeras.dart';
+import 'package:panaderia_flutter/ui/views/troqueladora/readTroqueladora.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -469,7 +470,7 @@ class LogInScreenState extends State<LogInScreen>
                                                 context,
                                                 MaterialPageRoute(
                                                     builder: (context) =>
-                                                        ReadLitografia()),
+                                                        ReadTroqueladora()),
                                               );
                                             } else {
                                               if (widget._nombre ==

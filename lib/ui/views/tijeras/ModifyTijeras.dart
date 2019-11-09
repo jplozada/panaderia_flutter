@@ -131,7 +131,11 @@ class _ModifyTijerasState extends State<ModifyTijeras> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                          Text("Fecha trabajo"),
+                          Text("Fecha trabajo",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                          ),),
                           Text("${widget.product.fechaTrabajo.toDate().day}-${widget.product.fechaTrabajo.toDate().month}-${widget.product.fechaTrabajo.toDate().year}",),
                           ],
                         ),
@@ -144,7 +148,11 @@ class _ModifyTijerasState extends State<ModifyTijeras> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                          Text("Hora trabajo"),
+                          Text("Hora trabajo",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                          ),),
                           Text("${widget.product.fechaTrabajo.toDate().hour}:${widget.product.fechaTrabajo.toDate().minute}:${widget.product.fechaTrabajo.toDate().second}",),
                           ],
                         ),
@@ -157,7 +165,11 @@ class _ModifyTijerasState extends State<ModifyTijeras> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                          Text("Turno"),
+                          Text("Turno",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                          ),),
                           DropdownButton<String>(
                             items: _value1.map((String dropDownStringItem) {
                               return DropdownMenuItem<String>(
@@ -186,7 +198,11 @@ class _ModifyTijerasState extends State<ModifyTijeras> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                          Text("Producto"),
+                          Text("Producto",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                          ),),
                           DropdownButton<String>(
                             isExpanded: true,
                             items: _value2.map((String dropDownStringItem) {
@@ -216,7 +232,11 @@ class _ModifyTijerasState extends State<ModifyTijeras> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text("Lote"),
+                            Text("Lote",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                          ),),
                             TextFormField(
                               initialValue: widget.product.lote.toString(),
                               keyboardType: TextInputType.numberWithOptions(),
@@ -243,7 +263,11 @@ class _ModifyTijerasState extends State<ModifyTijeras> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text("Hojas"),
+                            Text("Hojas",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                          ),),
                             TextFormField(
                               initialValue: widget.product.hojas.toString(),
                               keyboardType: TextInputType.numberWithOptions(),
@@ -274,7 +298,11 @@ class _ModifyTijerasState extends State<ModifyTijeras> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text("Trabajo"),
+                            Text("Trabajo",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                          ),),
                             Container(
                               height: 160,
                               child: ListView(
@@ -308,7 +336,11 @@ class _ModifyTijerasState extends State<ModifyTijeras> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text("Rechazo de litografia"),
+                            Text("Rechazo de litografia",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                          ),),
                             TextFormField(
                               initialValue: widget.product.rechazoLitografia,
                               decoration: InputDecoration(
@@ -338,7 +370,11 @@ class _ModifyTijerasState extends State<ModifyTijeras> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text("Responsable"),
+                            Text("Responsable",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                          ),),
                             DropdownButton<String>(
                               isExpanded: true,
                               items: _value3.map((String dropDownStringItem) {

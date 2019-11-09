@@ -5,6 +5,7 @@ import './locator.dart';
 import './core/viewmodels/CRUDModelLitografia.dart';
 import './core/viewmodels/CRUDModelTijeras.dart';
 import './core/viewmodels/CRUDModelEnsamblaje.dart';
+import './core/viewmodels/CRUDModelTroqueladora.dart';
 import 'package:panaderia_flutter/core/viewmodels/CRUDModelFinalProduct.dart';
 
 void main() {
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(builder: (_) => locator<CRUDModelTijeras>()),
         ChangeNotifierProvider(builder: (_) => locator<CRUDModelFinalProduct>()),
         ChangeNotifierProvider(builder: (_) => locator<CRUDModelEnsamblaje>()),
+        ChangeNotifierProvider(builder: (_) => locator<CRUDModelTroqueladora>()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
