@@ -313,6 +313,7 @@ class _AddLitografiaState extends State<AddLitografia> {
                                   ),
                                 ),
                                 TextFormField(
+                                  initialValue: "0",
                                     keyboardType:
                                         TextInputType.numberWithOptions(),
                                     decoration: InputDecoration(

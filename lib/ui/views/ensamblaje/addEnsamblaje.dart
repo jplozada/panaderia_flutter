@@ -336,6 +336,7 @@ class _AddEnsamblajeState extends State<AddEnsamblaje> {
                                   ),
                                 ),
                                 TextFormField(
+                                  initialValue: "0",
                                     keyboardType:
                                         TextInputType.numberWithOptions(),
                                     decoration: InputDecoration(
