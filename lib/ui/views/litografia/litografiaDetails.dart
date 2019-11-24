@@ -5,12 +5,16 @@ import 'package:panaderia_flutter/ui/views/litografia/ModifyLitografia.dart';
 import 'package:provider/provider.dart';
 
 class LitografiaDetails extends StatelessWidget {
+
   final Litografia product;
 
   LitografiaDetails({@required this.product});
 
   @override
   Widget build(BuildContext context) {
+
+    TimeOfDay horaDetail = TimeOfDay(hour:int.parse("${product.fechaTrabajo.toDate().hour}"),minute: int.parse("${product.fechaTrabajo.toDate().minute}"));
+
     final productProvider = Provider.of<CRUDModelLitografia>(context);
 
     return Scaffold(
@@ -78,7 +82,7 @@ class LitografiaDetails extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "${product.fechaTrabajo.toDate().hour}:${product.fechaTrabajo.toDate().minute}:${product.fechaTrabajo.toDate().second}",
+                          "${horaDetail.format(context)}",
                         )
                       ],
                     ),

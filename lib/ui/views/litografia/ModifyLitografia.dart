@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:panaderia_flutter/core/models/litografiaModel.dart';
 import 'package:panaderia_flutter/core/viewmodels/CRUDModelLitografia.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +16,7 @@ class ModifyLitografia extends StatefulWidget {
 
 class _ModifyLitografiaState extends State<ModifyLitografia> {
   final _formKey = GlobalKey<FormState>();
+  
   //Dropdownbutton value1
   var _value1 = ['1er turno', '2do turno'];
   var _value1Selected = '1er turno';
@@ -71,19 +73,53 @@ class _ModifyLitografiaState extends State<ModifyLitografia> {
   String hojasAProducir;
   String materiaPrima;
   String observacion;
+  DateTime dateDateTime;
+  TimeOfDay selectedTime;
 
   @override
   void initState() {
     _value2Selected = widget.product.producto;
     _value1Selected = widget.product.turno;
+    DateTime dateDateTime = widget.product.fechaTrabajo.toDate();
+    selectedTime = TimeOfDay(hour: int.parse("${widget.product.fechaTrabajo.toDate().hour}"), minute: int.parse("${widget.product.fechaTrabajo.toDate().minute}"));
+
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    DateTime fechaActual = DateTime.now();
-    Timestamp fechaActualFirebase = Timestamp.now();
-    fechaTrabajo = fechaActualFirebase;
+
+  //HourPicker
+  Future<Null> _selectTime(BuildContext context) async {
+    final TimeOfDay picked_s = await showTimePicker(
+        context: context,
+        initialTime: selectedTime,
+        builder: (BuildContext context, Widget child) {
+          return MediaQuery(
+            data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
+            child: child,
+          );
+        });
+    if (picked_s != null && picked_s != selectedTime)
+      setState(() {
+        selectedTime = picked_s;
+        dateDateTime = new DateTime(widget.product.fechaTrabajo.toDate().year, widget.product.fechaTrabajo.toDate().month,
+            widget.product.fechaTrabajo.toDate().day, selectedTime.hour, selectedTime.minute);
+            print(dateDateTime);
+        Timestamp dateTimestamp = Timestamp.fromDate(dateDateTime);
+        fechaTrabajo = dateTimestamp;
+      });
+  }
+
+    // Timestamp fechaActualFirebase = widget.product.fechaTrabajo;
+    // fechaTrabajo = fechaActualFirebase;
+    // Timestamp to datetime
+    // DateTime dateDateTime = fechaTrabajo.toDate();
+    // print(dateDateTime);
+    //Datetime to timestamp
+    // Timestamp dateTimestamp = Timestamp.fromDate(dateDateTime);
+    // print(dateTimestamp);
+
     final productProvider = Provider.of<CRUDModelLitografia>(context);
     return Scaffold(
         appBar: AppBar(
@@ -133,8 +169,10 @@ class _ModifyLitografiaState extends State<ModifyLitografia> {
                                     fontSize: 16,
                                   ),
                                 ),
-                                Text(
-                                  "${widget.product.fechaTrabajo.toDate().hour}:${widget.product.fechaTrabajo.toDate().minute}:${widget.product.fechaTrabajo.toDate().second}",
+                                Text("${selectedTime.format(context)}"),
+                                RaisedButton(
+                                  onPressed: () => _selectTime(context),
+                                  child: Text('Select date'),
                                 ),
                               ],
                             ),
